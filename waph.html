@@ -48,12 +48,12 @@
 
         async function guessAge(name){
             if (!/^[a-zA-Z]+$/.test(name)) {
-                $("#age").text("Error: Please input a valid alphanumeric name.");
+                $("#response").text("Error: Please input a valid alphanumeric name.");
                 return;
             }
             const response = await fetch("https://api.agify.io/?name=" + name);
             const result = await response.json();
-            $("#age").text("Hi " + name + " ,your age should be: " + result.age);
+            $("#response").text("Hi " + name + " ,your age should be: " + result.age);
         }
 
     </script>
@@ -76,13 +76,9 @@
         <hr>
     </div>
     <div>
-    <form action="/echo.php" method="post">
-                Your input: <input name="data" id="data" onkeyup="console.log('you have pressed a key')">
-                <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
+    Your name:<input name="data" onkeypress="console.log('you have pressed a key')" id="data">
+    <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
     </div>
-    <div id="age"></div>
-    </form>
-    
 </div>
 </body>
 </html>
