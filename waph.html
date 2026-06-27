@@ -96,10 +96,12 @@
 
         function cookies(){
             console.log("executing cookies()");
-            if(document.cookie.indexOf("last_visit") == null){
+            if(document.cookie.indexOf("last_visit") < 0){
                 alert("welcome to my page!");
                 document.cookie = "last_visit=" + new Date().toLocaleString();
             }else {
+                var cookieString = document.cookie.replace(/;\s*/g, "&");
+                var params = new URLSearchParams(cookieString);
                 var lastVisitTime = params.get("last_visit");
                 alert("Welcome back! your last visit was " + lastVisitTime);
                 document.cookie = "last_visit=" + new Date().toLocaleString();
