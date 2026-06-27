@@ -70,7 +70,7 @@
         function fetchDogImage(){
             $.get("https://dog.ceo/api/breeds/image/random", 
             function(result) {
-                    const imageUrl = result.message;
+                    var imageUrl = result.message;
                     $("#dog-picture").attr("src", imageUrl);
             })
         }
