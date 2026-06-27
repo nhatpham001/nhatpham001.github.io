@@ -95,6 +95,7 @@
         }
 
         function cookies(){
+            console.log("executing cookies()");
             if(document.cookie.indexOf("last_visit") == null){
                 alert("welcome to my page!");
                 document.cookie = "last_visit=" + new Date().toLocaleString();
