@@ -13,9 +13,22 @@
 </head>
 <body>
 <div id="container">
-<div id="vue-app">
-    <div>
-        <input class="button round" type="button" value="Get Random Dog" @click="fetchDogImage">
+    <div id="menubar">
+        <p>Student: Nhat Pham</p>
+        <div id="email" onclick="showHideEmail()">Show my email</div>
+        <script src="email.js"></script>
+        <p>Education: Bachelor of Science in Computer Science at UC</p>
+        </div>
+        <div> Interested in web application and hacking? Visit this course <a href="https://nhatpham001.github.io/courseintro.html"> Web application programming and Hacking</a></div>
+        <div id="response"></div>
+        <div id="chucknorris"></div>
+        <div id="date" onclick="document.getElementById('date').innerHTML = Date()"> Show Date()</div>
+        <div id="digital-clock"></div>
+        
+        <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
+        <div id="vue-app">
+        <div>
+        <button class="btn btn-dark rounded-pill" @click="fetchDogImage">Get Random Dog</button>
         <br><br>
         
         <img :src="dogImageUrl" 
@@ -24,23 +37,7 @@
              style="max-width: 300px; border-radius: 8px;">
     </div>
 </div>
-
-<div id="container wrapper">
-    <div id="menubar">
-        <p>Student: Nhat Pham</p>
-        <div id="email" onclick="showHideEmail()">Show my email</div>
-        <script src="email.js"></script>
-        <p>Education: Bachelor of Science in Computer Science at UC</p>
     </div>
-    <div> Interested in web application and hacking? Visit this course <a href="https://nhatpham001.github.io/courseintro.html"> Web application programming and Hacking</a></div>
-    <div id="response"></div>
-    <div id="chucknorris"></div>
-    <div id="date" onclick="document.getElementById('date').innerHTML = Date()"> Show Date()</div>
-    <div id="digital-clock"></div>
-    
-    <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
-    <div id="dog-status"></div>
-</div>
     <script src="https://waph-phung.github.io/clock.js"></script>
 
     <script>
@@ -155,7 +152,6 @@
     <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
     </div>
     <div id="age"></div>
-</div>
 </div>
 </body>
 </html>
