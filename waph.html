@@ -93,6 +93,16 @@
             const result = await response.json();
             $("#age").text("Hi " + name + " ,your age should be: " + result.age);
         }
+
+        function cookies(){
+            if(document.cookie.indexOf("username") < 0){
+                alert("no username in cookie, set new one");
+                document.cookie = "username = YOURusername";
+            }else {
+                alert("my cookie" + document.cookie);
+            }
+        }
+        cookies();
         
 
     </script>
