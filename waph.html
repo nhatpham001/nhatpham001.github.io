@@ -95,14 +95,13 @@
         }
 
         function cookies(){
-            if(document.cookie.indexOf("username") < 0){
-                alert("no username in cookie, set new one");
-                document.cookie = "username = YOURusername";
-                document.cookie = "last_visit=" + new Date().toLocaleString()
+            if(document.cookie.indexOf("last_visit") == null){
+                alert("welcome to my page!");
+                document.cookie = "last_visit=" + new Date().toLocaleString();
             }else {
                 var lastVisitTime = params.get("last_visit");
                 alert("Welcome back! your last visit was " + lastVisitTime);
-                document.cookie = "last_visit=" + new Date().toLocaleString()
+                document.cookie = "last_visit=" + new Date().toLocaleString();
             }
         }
         cookies();
