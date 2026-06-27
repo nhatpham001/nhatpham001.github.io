@@ -47,7 +47,12 @@
 
         $.get("https://v2.jokeapi.dev/joke/Programming?type=single", 
             function(result) {
-                $("#response").text("The programming joke of the day: " + result.joke);
+                if(result.type =="twopart"){
+                    $("#response").text("The programming joke of the day: " + result.setup + "....." + result.delivery);
+                }else{
+                    $("#response").text("The programming joke of the day: " + result.joke);
+                }
+                
             })
 
         async function guessAge(name){
