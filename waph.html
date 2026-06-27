@@ -46,6 +46,16 @@
                 $("#response").text("The programming joke of the day: " + result.joke);
             })
 
+        async function guessAge(name){
+            if (!/^[a-zA-Z]+$/.test(name)) {
+                $("#response").text("Error: Please input a valid alphanumeric name.");
+                return;
+            }
+            const response = await fetch("https://api.agify.io/?name=" + name);
+            const result = await response.json();
+            $("#response").text("Hi " + name + " ,your age should be: " + result.age);
+        }
+
     </script>
     <hr>
     <div id="Experience">
@@ -64,6 +74,13 @@
         <p> A simple HTML page</p>
         using the <a href="https://www.w3schools.com/Html/" target="blank"> w3schools template</a>
         <hr>
+    </div>
+    <div>
+    <form action="/echo.php" method="post">
+                Your input: <input name="data" onkeyup="console.log('you have pressed a key')">
+            <input type="submit" value="Submit">
+    </form>
+    <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
     </div>
 </div>
 </body>
