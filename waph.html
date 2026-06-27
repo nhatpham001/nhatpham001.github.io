@@ -11,13 +11,8 @@
 </head>
 <body>
 <div id="vue-app">
-    <hr>
-    <h2 v-text="title"></h2>
-    <p v-text="description"></p>
-    <button class="button round" @click="updateMessage">Test Vue Reactivity</button>
-    <hr>
     <div>
-        <input class="button round" type="button" value="Get Random Dog (Vue)" @click="fetchDogImage">
+        <input class="button round" type="button" value="Get Random Dog" @click="fetchDogImage">
         <br><br>
         
         <img :src="dogImageUrl" 
@@ -41,11 +36,6 @@
     <div id="digital-clock"></div>
     
     <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
-    <div>
-        <input class="button round" type="button" value="Get Random Dog" onclick="fetchDogImage()">
-        <br><br>
-        <img id="dog-picture" src="" alt="Dog Pic" style="max-width: 300px; display: none; border-radius: 8px;">
-    </div>
     <div id="dog-status"></div>
 </div>
     <script src="https://waph-phung.github.io/clock.js"></script>
@@ -120,33 +110,18 @@
 
         createApp({
             setup() {
-                // Define reactive variables
-                const title = ref("Vue.js Integration Element");
-                const description = ref("This section is completely reactive and managed by Vue 3 directly on GitHub Pages!");
-
-                // Define a simple click interactive method
-                function updateMessage() {
-                    description.value = "It works! Vue.js is cleanly running alongside your jQuery code.";
-                }
                 const dogImageUrl = ref(""); 
-
-        // 2. The rewritten API function using modern async/fetch
                 async function fetchDogImage() {
                     try {
                         const response = await fetch("https://dog.ceo/api/breeds/image/random");
                         const result = await response.json();
                         
-                        // Just update the variable value! Vue takes care of the DOM updates.
                         dogImageUrl.value = result.message; 
                     } catch (error) {
                         console.error("Error fetching dog image:", error);
                     }
                 }
-                // Return the properties so the HTML template can read them
                 return {
-                    title,
-                    description,
-                    updateMessage,
                     dogImageUrl,
                     fetchDogImage,
                 };
