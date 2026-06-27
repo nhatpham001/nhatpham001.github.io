@@ -16,13 +16,6 @@
     <div id="menubar">
         <p>Student: Nhat Pham</p>
         <img src="./headshot.jpeg" height="100" width="100">
-        <div id="email" 
-         class="text-primary" 
-         style="cursor: pointer; text-decoration: underline;" 
-         @click="toggleEmail"
-         v-text="isEmailVisible ? emailAddress : 'Show my email'">
-    </div>
-        <script src="email.js"></script>
         <p>Education: Bachelor of Science in Computer Science at UC</p>
         </div>
         <div> Interested in web application and hacking? Visit this course <a href="https://nhatpham001.github.io/courseintro.html"> Web application programming and Hacking</a></div>
@@ -34,6 +27,12 @@
         
         <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
         <div id="vue-app">
+            <div id="email" 
+                class="text-primary" 
+                style="cursor: pointer; text-decoration: underline;" 
+                @click="toggleEmail"
+                v-text="isEmailVisible ? emailAddress : 'Show my email'">
+            </div>
         <div>
         <button class="btn btn-dark rounded-pill" @click="fetchDogImage">Get Random Dog</button>
         <br><br>
