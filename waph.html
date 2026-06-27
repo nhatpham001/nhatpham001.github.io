@@ -24,9 +24,9 @@
     
     <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
     <div>
-    <input class="button round" type="button" value="Get Random Dog" onclick="fetchDogImage()">
-    <br><br>
-    <img id="dog-picture" src="" alt="Dog Pic" style="max-width: 300px; display: none; border-radius: 8px;">
+        <input class="button round" type="button" value="Get Random Dog" onclick="fetchDogImage()">
+        <br><br>
+        <img id="dog-picture" src="" alt="Dog Pic" style="max-width: 300px; display: none; border-radius: 8px;">
     </div>
     <div id="dog-status"></div>
 </div>
@@ -72,8 +72,10 @@
             function(result) {
                     var imageUrl = result.message;
                     $("#dog-picture").attr("src", imageUrl);
+                    $("#dog-picture").show();
             })
         }
+
         function ChuckNorrisJoke(){
             $.get("https://api.chucknorris.io/jokes/random", 
             function(result) {
