@@ -18,6 +18,7 @@
         <p>Education: Bachelor of Science in Computer Science at UC</p>
     </div>
     <div id="response"></div>
+    <div id="chucknorris"></div>
     <div id="date" onclick="document.getElementById('date').innerHTML = Date()"> Show Date()</div>
     <div id="digital-clock"></div>
     <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
@@ -58,6 +59,12 @@
         joke();
         setInterval(joke, 60000);
         
+        function ChuckNorrisJoke(){
+            $.get("https://api.chucknorris.io/jokes/random", 
+            function(result) {
+                    $("#chucknorris").text("Random Chuck Noris fact: " + result.value);
+            })
+        }
 
         async function guessAge(name){
             if (!/^[a-zA-Z]+$/.test(name)) {
