@@ -77,7 +77,7 @@
     </div>
     <div>
     <form action="/echo.php" method="post">
-                Your input: <input name="data" onkeyup="console.log('you have pressed a key')">
+                Your input: <input name="data" id="data" onkeyup="console.log('you have pressed a key')">
                 <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
     </div>
     <div id="age"></div>
