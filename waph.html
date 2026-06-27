@@ -55,6 +55,7 @@
             const result = await response.json();
             $("#response").text("Hi " + name + " ,your age should be: " + result.age);
         }
+        
 
     </script>
     <hr>
@@ -79,6 +80,7 @@
     Your name:<input name="data" onkeypress="console.log('you have pressed a key')" id="data">
     <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
     </div>
+    <div id="response"></div>
 </div>
 </body>
 </html>
