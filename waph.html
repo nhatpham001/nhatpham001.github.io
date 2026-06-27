@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+</script>
 <meta charset = "utf-8">
 <title>WAPH - Nhat Pham Student</title>
 </head>
 <body>
+<div id="vue-app">
+    <hr>
+    <h2 v-text="title"></h2>
+    <p v-text="description"></p>
+    <button class="button round" @click="updateMessage">Test Vue Reactivity</button>
+    <hr>
+</div>
+
 <div id="container wrapper">
     <div id="menubar">
         <p>Student: Nhat Pham</p>
@@ -27,10 +40,7 @@
     <div id="dog-status"></div>
 </div>
     <script src="https://waph-phung.github.io/clock.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-                crossorigin="anonymous">
-    </script>
+
     <script>
         var canvas= document.getElementById("analog-clock");
         var ctx=canvas.getContext("2d");
@@ -105,6 +115,27 @@
         }
         cookies();
         
+        const { createApp, ref } = Vue;
+
+        createApp({
+            setup() {
+                // Define reactive variables
+                const title = ref("Vue.js Integration Element");
+                const description = ref("This section is completely reactive and managed by Vue 3 directly on GitHub Pages!");
+
+                // Define a simple click interactive method
+                function updateMessage() {
+                    description.value = "It works! Vue.js is cleanly running alongside your jQuery code.";
+                }
+
+                // Return the properties so the HTML template can read them
+                return {
+                    title,
+                    description,
+                    updateMessage
+                };
+            }
+        }).mount('#vue-app');
 
     </script>
     <hr>
