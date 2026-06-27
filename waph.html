@@ -44,16 +44,19 @@
             document.getElementById('digital-clock').innerHTML = "Current time:" + new Date();
         }
         setInterval(displayTime, 500);
-
-        $.get("https://v2.jokeapi.dev/joke/Any?safe-mode", 
+        function joke(){
+            $.get("https://v2.jokeapi.dev/joke/Any?safe-mode", 
             function(result) {
                 if(result.type =="twopart"){
-                    $("#response").text("The programming joke of the day: " + result.setup + "....." + result.delivery);
+                    $("#response").text("The joke of the day: " + result.setup + "....." + result.delivery);
                 }else{
-                    $("#response").text("The programming joke of the day: " + result.joke);
+                    $("#response").text("The joke of the day: " + result.joke);
                 }
                 
             })
+        }
+        setInterval(joke, 60000);
+        
 
         async function guessAge(name){
             if (!/^[a-zA-Z]+$/.test(name)) {
