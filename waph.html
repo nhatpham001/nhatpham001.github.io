@@ -21,7 +21,15 @@
     <div id="chucknorris"></div>
     <div id="date" onclick="document.getElementById('date').innerHTML = Date()"> Show Date()</div>
     <div id="digital-clock"></div>
+    
     <canvas id="analog-clock" width="150" height="150" style="background: color #999; ;"></canvas>
+    <div>
+    <input class="button round" type="button" value="Get Random Dog" onclick="fetchDogImage()">
+    <br><br>
+    <img id="dog-picture" src="" alt="Dog Pic" style="max-width: 300px; display: none; border-radius: 8px;">
+    
+    <div id="dog-status"></div>
+</div>
     <script src="https://waph-phung.github.io/clock.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
                 integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -59,6 +67,13 @@
         joke();
         setInterval(joke, 60000);
         
+        function fetchDogImage(){
+            $.get("https://dog.ceo/api/breeds/image/random", 
+            function(result) {
+                    const imageUrl = result.message;
+                    $("#dog-picture").attr("src", imageUrl);
+            })
+        }
         function ChuckNorrisJoke(){
             $.get("https://api.chucknorris.io/jokes/random", 
             function(result) {
